@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>Simple Regression Modeler Pitch</title>
+	<meta name="description" content="Simple Regression Modeler Pitch">
+	<meta name="author" content="C. Haen">
+	<meta name="generator" content="slidify" />
+	
+	<!-- LOAD STYLE SHEETS -->
+	<link rel="stylesheet" href="libraries/frameworks/html5slides/default/styles.css">
+	<link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />  <link rel="stylesheet" href = "assets/css/ribbons.css">
+  
+</head>
+<body style='display: none'>
+	<section class='slides layout-regular template-regular'>
+     <article class="" id="slide-1" style="background:;">
+  <h3>Simple Regression Modeler Pitch</h3>
+  <p><center></p>
+
+<h1>Coursera - JHU Data Science Specialization</h1>
+
+<p></center></p>
+
+<p><center>Developing Data Products - Week 4 - Course Project</center>
+<br/><br/><br/><br/>
+<center>C. Haen</center></p>
+
+<p><center>12-APR-2021</center></p>
+
+</article>
+
+<article class="" id="slide-2" style="background:;">
+  <h3>Slide 2 - Overview</h3>
+  <p>The <a href="https://sachaen.shinyapps.io/Simple_Regression_Modeler/">Simple Regression Modeler</a> is a Shiny application lets you choose one of the built-in R data sets, select an Outcome variable and a Predictor variable and a new predictor value. It then creates a plot for you including the regression line and a predicted outcome for the value you provided.</p>
+
+<p>The Outcome and Predictor input selections are automatically populated for you from the data set, so you don&#39;t need to investigate it yourself. The predicted outcome value is automatically set to the mean of the selected Predictor which you can then adjust to any value you choose.</p>
+
+<p>The <a href="https://sachaen.shinyapps.io/Simple_Regression_Modeler/">Simple Regression Modeler</a> can be found at my <a href="https://sachaen.shinyapps.io/">shinyapps.io page.</a></p>
+
+</article>
+
+<article class="" id="slide-3" style="background:;">
+  <h3>Slide 3 - Design</h3>
+  <p>The Simple Regression Modeler Shiny application consists of a side panel and a main panel. The side panel has three dropdown selector inputs and one numeric text input. The main panel shows the plotted result (or an error message if an invalid selection was made.)</p>
+
+<p>The side panel inputs are as follows:</p>
+
+<pre><code>- Dataset: This is a dropdown consisting of many of the built-in R datasets.
+- Outcome: List of variables in the dataset, automatically populated.
+- Predictor: List of variables in the dataset, autoomatically populated.
+- Pedict: A value for which an new outcome will be predicted.
+</code></pre>
+
+<p>The main panel consists of text describing the purpose of the application and a plot based on the values selected by the user. The plot includes a regression line and the predicted outcome.</p>
+
+</article>
+
+<article class="" id="slide-4" style="background:;">
+  <h3>Slide 4 - Example of Plotting Code</h3>
+  <pre><code class="r">outcome &lt;- mtcars$mpg; predictor &lt;- mtcars$disp; predict &lt;- 250;
+model &lt;- lm(outcome ~ predictor); plot(x = predictor, y = outcome)
+abline(model); points(x = predict, y = predict(model, newdata = 
+        data.frame(predictor = predict)), pch=18, col=&quot;red&quot;, cex = 2)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-1-1.png" alt="plot of chunk unnamed-chunk-1"></p>
+
+</article>
+
+<article class="" id="slide-5" style="background:;">
+  <h3>Slide 5 - Image of App</h3>
+  <p><img src="Simple Regression Modeler.png" height=400 width=800 /></p>
+
+</article>
+
+  </section>
+</body>
+  <!-- LOAD JAVASCRIPTS  -->
+	<script src='libraries/frameworks/html5slides/default/slides.js'></script>
+	<!-- LOAD HIGHLIGHTER JS FILES -->
+	<script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	<!-- DONE LOADING HIGHLIGHTER JS FILES -->
+	 
+	</html>
